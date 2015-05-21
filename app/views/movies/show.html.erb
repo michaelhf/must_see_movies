@@ -11,10 +11,10 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Director</dt>
-              <dd><%= @movie.director_id %></dd>
+              <dd><%= @movie.director.name %></dd>
 
               <dt>Image url</dt>
-              <dd><%= @movie.image_url %></dd>
+              <dd><img src="<%= @movie.image_url %>"> </img></dd>
 
               <dt>Description</dt>
               <dd><%= @movie.description %></dd>
@@ -27,8 +27,13 @@
 
               <dt>Title</dt>
               <dd><%= @movie.title %></dd>
+<% @movie.roles.each do |role| %>
+<% @actor = role.actor %>
+              <dt>Actor and Role</dt>
+              <dd><a href="/actors/<%=@actor.id  %>"> <%=@actor.name %> </a> as <%=role.character_name  %></dd>
+            <% end %>
+                        </dl>
 
-            </dl>
             <div class="btn-group btn-group-justified">
               <a href="/movies" class="btn btn-primary">
                 <i class="fa fa-chevron-left"></i>
