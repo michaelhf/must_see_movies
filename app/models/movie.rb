@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-
-  belongs_to :director, :class_name =>"Director", :foreign_key =>"director_id"
+validates :title, :presence => :true
+  belongs_to :director
   has_many :roles
 end
